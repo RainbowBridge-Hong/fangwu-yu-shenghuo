@@ -162,6 +162,27 @@ img{max-width:100%;display:block}
 .admin-grid{grid-template-columns:1fr}
 .admin-sidebar{display:none}
 }
+
+/* Detail Modal Styles */
+.md-detail{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.9);display:none;align-items:center;justify-content:center;z-index:3000;padding:20px;overflow-y:auto}.md-detail.on{display:flex}
+.mdc-detail{background:var(--bg3);border-radius:20px;width:100%;max-width:800px;padding:30px;border:1px solid rgba(201,168,76,.3);position:relative;max-height:90vh;overflow-y:auto}
+.mdc-detail .mcx{position:absolute;top:20px;right:25px;font-size:2rem;color:var(--t2);cursor:pointer;z-index:10}
+.mdc-detail .mcx:hover{color:var(--g)}
+.detail-header{text-align:center;margin-bottom:25px;padding-bottom:20px;border-bottom:1px solid rgba(201,168,76,.2)}
+.detail-header h2{color:var(--g);font-size:1.8rem;font-weight:700}
+.detail-img{width:100%;margin-bottom:25px;border-radius:12px;overflow:hidden}
+.detail-img img{width:100%;height:auto;display:block}
+.detail-info{background:var(--bg2);padding:20px;border-radius:12px;margin-bottom:25px}
+.di-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(201,168,76,.1)}
+.di-row:last-child{border-bottom:none}
+.di-label{color:var(--t2);font-weight:600}
+.di-value{color:var(--t);text-align:right}
+.detail-desc{background:var(--bg2);padding:20px;border-radius:12px;margin-bottom:25px}
+.detail-desc h3{color:var(--g);margin-bottom:15px;font-size:1.1rem}
+.detail-desc p{color:var(--t2);line-height:1.8;font-size:.95rem}
+.detail-contact{background:linear-gradient(135deg,rgba(201,168,76,.2) 0%,rgba(201,168,76,.05) 100%);padding:20px;border-radius:12px;text-align:center;border:1px solid rgba(201,168,76,.3)}
+.detail-contact h3{color:var(--g);margin-bottom:10px}
+.detail-contact p{color:var(--t);font-size:1.2rem;font-weight:600}
 </style>
 </head>
 <body>
@@ -316,5 +337,13 @@ img{max-width:100%;display:block}
 
 <script src="js/data.js"></script>
 <script src="js/app.js"></script>
+
+<!-- Detail Modal -->
+<div class="md md-detail" id="detailModal">
+  <div class="mc mdc-detail">
+    <span class="mcx" onclick="closeDetail()">&times;</span>
+    <div id="detailContent"></div>
+  </div>
+</div>
 </body>
 </html>
