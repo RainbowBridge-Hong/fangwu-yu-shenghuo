@@ -1,3 +1,4 @@
+// v1775061083 - cache bust
 // app.js - 房屋与生活 完整应用逻辑
 var CLOUD_KEY='fangwu_yushenghuo_cloud';
 var currentUser=null;
