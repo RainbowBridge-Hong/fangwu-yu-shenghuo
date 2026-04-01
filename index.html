@@ -13,11 +13,11 @@ a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 img{max-width:100%;display:block}
 
-.ld{position:fixed;inset:0;background:var(--bg);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity .5s}
-.ld.out{opacity:0;pointer-events:none}
-.ldl{width:60px;height:60px;border:3px solid var(--g3);border-top-color:var(--g);border-radius:50%;animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.ldt{margin-top:20px;color:var(--g);font-size:14px;letter-spacing:2px}
+
+
+
+}
+
 
 .nav{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(8,12,20,.95);backdrop-filter:blur(10px);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 40px;border-bottom:1px solid rgba(201,168,76,.1)}
 .logo{display:flex;align-items:center;gap:12px}
@@ -120,7 +120,7 @@ img{max-width:100%;display:block}
 
 .tc{position:fixed;top:100px;right:20px;z-index:3000;display:flex;flex-direction:column;gap:10px}
 .tost{background:var(--bg2);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:15px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 10px 30px rgba(0,0,0,.3);animation:slideIn .3s ease}
-@keyframes slideIn{from{transform:translateX(100%);opacity:0}}
+}
 .tost .ic{font-size:20px}
 .tost.ok .ic{color:var(--gr)}
 .tost.er .ic{color:var(--rd)}
@@ -186,8 +186,7 @@ img{max-width:100%;display:block}
 </style>
 </head>
 <body>
-
-<div class="ld" id="ld"><div class="ldl"></div><div class="ldt">东濂置业 加载中...</div></div>
+</div>
 
 <nav class="nav">
   <div class="logo"><i class="fas fa-building"></i><span>房屋与生活</span></div>
