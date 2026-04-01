@@ -86,9 +86,10 @@ function adminLogin(){
   if(u==='admin'&&p==='admin123'){
     localStorage.setItem('fangwu_admin','1');
     gp('admin');
-    toast('管理员登录成功！','ok');
+    toast('Login successful!','ok');
     loadAdminData();
-  }else{toast('账号或密码错误','er')}
+  }else{toast('Username or password incorrect','er')}
+}else{toast('账号或密码错误','er')}
 }
 
 function adminLogout(){localStorage.removeItem('fangwu_admin');gp('home');toast('已退出登录','ok')}
@@ -203,7 +204,7 @@ function renderErshou(district){
   var data=district&&district!=='all'?ERSHOU.filter(function(e){return e.district===district}):ERSHOU;
   var html='';
   data.slice(0,12).forEach(function(item){
-    html+='<div class="crd" onclick="toast(\'详情请致电: 13876699053\')">'
+    html+='<div class="crd" onclick="showDetail(\'ershou\','+'item.id)">' 
       +'<div class="ci">&#127968;</div>'
       +'<div class="cb"><span class="ctag">'+item.district+'</span>'
       +'<div class="ct">'+item.name+'</div>'
@@ -234,7 +235,7 @@ function renderCars(district){
   var data=district&&district!=='all'?CAR_DATA.filter(function(c){return c.district===district}):CAR_DATA;
   var html='';
   data.slice(0,12).forEach(function(c){
-    html+='<div class="crd" onclick="toast(\'详情请致电: 13876699053\')">'
+    html+='<div class="crd" onclick="showDetail(\'car\','+'c.id)">' 
       +'<div class="ci" style="font-size:48px">&#128663;</div>'
       +'<div class="cb"><span class="ctag">'+c.district+'</span>'
       +'<div class="ct">'+c.name+'</div>'
@@ -370,4 +371,71 @@ function toast(msg,type){
   t.innerHTML='<i class="fas '+(icons[type]||'fa-info-circle')+' ic"></i><span>'+msg+'</span>';
   container.appendChild(t);
   setTimeout(function(){t.style.opacity='0';t.style.transform='translateX(100%)';setTimeout(function(){t.remove()},300)},3000);
+}
+
+
+// ====== DETAIL MODAL FUNCTIONS ======
+function showDetail(type, id){
+  var data = null;
+  if(type === 'loupan'){
+    data = LOU_PAN.find(function(x){return x.id === id});
+  }else if(type === 'ershou'){
+    data = ERSHOU.find(function(x){return x.id === id});
+  }else if(type === 'policy'){
+    data = FANGCHAN_POLICY.find(function(x){return x.id === id});
+  }else if(type === 'car'){
+    data = CAR_DATA.find(function(x){return x.id === id});
+  }else if(type === 'xueche'){
+    data = XUECHE_DATA.find(function(x){return x.id === id});
+  }
+  if(!data){toast('Data not found','er');return;}
+  var modal = document.getElementById('detailModal');
+  var content = document.getElementById('detailContent');
+  var name = data.name || data.title || 'Details';
+  var html = '<div class="detail-header"><h2>'+name+'</h2></div><div class="detail-body">';
+  html += '<div class="detail-img"><img src="https://picsum.photos/800/400?random='+Math.random()+'" alt="Image"></div>';
+  
+  if(type === 'loupan' || type === 'ershou'){
+    html += '<div class="detail-info">';
+    html += '<div class="di-row"><span class="di-label">Region:</span><span class="di-value">'+(data.district||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Price:</span><span class="di-value">'+(data.price||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Property Fee:</span><span class="di-value">'+(data.wy||'-')+' yuan/month</span></div>';
+    html += '<div class="di-row"><span class="di-label">Parking:</span><span class="di-value">'+(data.tc||'-')+' yuan/month</span></div>';
+    html += '<div class="di-row"><span class="di-label">School District:</span><span class="di-value">'+(data.xq||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Date:</span><span class="di-value">'+(data.date||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Views:</span><span class="di-value">'+(data.views||'-')+'</span></div>';
+    html += '</div>';
+    html += '<div class="detail-desc"><h3>Description</h3><p>'+(data.desc||'No description available.')+'</p></div>';
+  }else if(type === 'policy'){
+    html += '<div class="detail-info">';
+    html += '<div class="di-row"><span class="di-label">Source:</span><span class="di-value">'+(data.source||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Date:</span><span class="di-value">'+(data.date||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Views:</span><span class="di-value">'+(data.views||'-')+'</span></div>';
+    html += '</div>';
+    html += '<div class="detail-desc"><h3>Policy Content</h3><p>'+(data.content||'No content available.')+'</p></div>';
+  }else if(type === 'car'){
+    html += '<div class="detail-info">';
+    html += '<div class="di-row"><span class="di-label">Brand:</span><span class="di-value">'+(data.brand||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Region:</span><span class="di-value">'+(data.district||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Price:</span><span class="di-value">'+(data.price||'-')+' 万</span></div>';
+    html += '<div class="di-row"><span class="di-label">Type:</span><span class="di-value">'+(data.type||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Date:</span><span class="di-value">'+(data.date||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Views:</span><span class="di-value">'+(data.views||'-')+'</span></div>';
+    html += '</div>';
+    html += '<div class="detail-desc"><h3>Description</h3><p>'+(data.desc||'No description available.')+'</p></div>';
+  }else if(type === 'xueche'){
+    html += '<div class="detail-info">';
+    html += '<div class="di-row"><span class="di-label">Date:</span><span class="di-value">'+(data.date||'-')+'</span></div>';
+    html += '<div class="di-row"><span class="di-label">Views:</span><span class="di-value">'+(data.views||'-')+'</span></div>';
+    html += '</div>';
+    html += '<div class="detail-desc"><h3>Content</h3><p>'+(data.content||data.title||'No content available.')+'</p></div>';
+  }
+  html += '<div class="detail-contact"><h3>Contact Us</h3><p>Phone: 13876699053</p></div>';
+  html += '</div>';
+  content.innerHTML = html;
+  modal.classList.add('on');
+}
+
+function closeDetail(){
+  document.getElementById('detailModal').classList.remove('on');
 }
