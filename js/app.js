@@ -204,13 +204,13 @@ function renderErshou(district){
   var data=district&&district!=='all'?ERSHOU.filter(function(e){return e.district===district}):ERSHOU;
   var html='';
   data.slice(0,12).forEach(function(item){
-    html+='<div class="crd" onclick="showDetail(\'ershou\','+'item.id)">' 
-      +'<div class="ci">&#127968;</div>'
-      +'<div class="cb"><span class="ctag">'+item.district+'</span>'
-      +'<div class="ct">'+item.name+'</div>'
-      +'<div class="cm"><span>&#128207; '+item.area+'</span><span>&#128176; '+item.wy+'元/平</span></div>'
-      +'<div class="cp">'+item.price+'<small>万</small></div></div>'
-      +'<div class="cf"><span><i class="fas fa-clock"></i> '+item.date+'</span><span><i class="fas fa-eye"></i> '+item.views+'</span></div></div>';
+    html+='<div class="crd" onclick="showDetail(\'ershou\',\''+item.id+'\')">'+
+      '<div class="ci">&#127968;</div>'+
+      '<div class="cb"><span class="ctag">'+item.district+'</span>'+
+      '<div class="ct">'+item.name+'</div>'+
+      '<div class="cm"><span>&#128207; '+item.area+'</span><span>&#128176; '+item.wy+'</span></div>'+
+      '<div class="cp">'+item.price+'<small>万</small></div></div>'+
+      '<div class="cf"><span>'+item.date+'</span><span>'+item.views+'</span></div></div>';
   });
   grid.innerHTML=html||'<div style="text-align:center;color:var(--t3);padding:40px">暂无数据</div>';
 }
@@ -235,13 +235,13 @@ function renderCars(district){
   var data=district&&district!=='all'?CAR_DATA.filter(function(c){return c.district===district}):CAR_DATA;
   var html='';
   data.slice(0,12).forEach(function(c){
-    html+='<div class="crd" onclick="showDetail(\'car\','+'c.id)">' 
-      +'<div class="ci" style="font-size:48px">&#128663;</div>'
-      +'<div class="cb"><span class="ctag">'+c.district+'</span>'
-      +'<div class="ct">'+c.name+'</div>'
-      +'<div class="cm"><span>'+c.brand+'</span><span>'+c.type+'</span></div>'
-      +'<div class="cp">'+c.price+'<small>万</small></div></div>'
-      +'<div class="cf"><span><i class="fas fa-clock"></i> '+c.date+'</span><span><i class="fas fa-eye"></i> '+c.views+'</span></div></div>';
+    html+='<div class="crd" onclick="showDetail(\'car\',\''+c.id+'\')">'+
+      '<div class="ci" style="font-size:48px">&#128663;</div>'+
+      '<div class="cb"><span class="ctag">'+c.district+'</span>'+
+      '<div class="ct">'+c.name+'</div>'+
+      '<div class="cm"><span>'+c.brand+'</span><span>'+c.type+'</span></div>'+
+      '<div class="cp">'+c.price+'<small>万</small></div></div>'+
+      '<div class="cf"><span>'+c.date+'</span><span>'+c.views+'</span></div></div>';
   });
   grid.innerHTML=html||'<div style="text-align:center;color:var(--t3);padding:40px">暂无数据</div>';
 }
