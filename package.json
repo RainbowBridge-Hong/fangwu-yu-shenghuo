@@ -1,0 +1,12 @@
+{
+  "name": "fangwu-yu-shenghuo",
+  "version": "1.0.0",
+  "description": "房屋与生活 - 安居乐业，必选东濂",
+  "scripts": {
+    "dev": "node server/index.js",
+    "build": "npm run build:frontend && npm run copy:assets",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "copy:assets": "node scripts/copy-assets.js",
+    "deploy": "npm run build && node scripts/deploy.js"
+  }
+}
