@@ -1,0 +1,598 @@
+      <div class="feature-card">
+        <div class="feature-icon">&#128205;</div>
+        <div class="feature-title">海口四大区域覆盖</div>
+        <div class="feature-desc">龙华区、秀英区、美兰区、琼山区全区域覆盖，信息实时更新</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128274;</div>
+        <div class="feature-title">真实信息保障</div>
+        <div class="feature-desc">严格审核每一条信息，确保房源、车辆、服务信息真实可靠</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128172;</div>
+        <div class="feature-title">委托交易服务</div>
+        <div class="feature-desc">委托买、委托卖功能，快速匹配需求，省时省力</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#128663;</div>
+        <div class="feature-title">新能源车服务</div>
+        <div class="feature-desc">从购车到网约车运营，一站式新能源出行解决方案</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest News -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">最新资讯</div>
+    <h2 class="section-title">行业<span class="gold">动态</span></h2>
+  </div>
+  <div class="news-list" id="homeNewsList"></div>
+  <div style="text-align:center;margin-top:24px">
+    <button class="btn btn-outline" onclick="goPage('news')"><i class="fas fa-list"></i> 查看更多资讯</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="footer-brand-icon">&#127968;</div>
+          <div class="footer-brand-text">房屋与生活</div>
+        </div>
+        <p class="footer-desc">安居乐业，必选东濂。海南专业房产、新能源汽车、网约车服务平台，为您提供一站式生活服务解决方案。</p>
+      </div>
+      <div class="footer-col">
+        <h4>快速导航</h4>
+        <a href="#" onclick="goPage('home');return false">首页</a>
+        <a href="#" onclick="goPage('fangchan');return false">海口市房地产</a>
+        <a href="#" onclick="goPage('diandongche');return false">新能源电车</a>
+        <a href="#" onclick="goPage('xueche');return false">网约车服务</a>
+      </div>
+      <div class="footer-col">
+        <h4>服务支持</h4>
+        <a href="#">委托买房</a>
+        <a href="#">委托卖房</a>
+        <a href="#">新能源购车</a>
+        <a href="#">网约车培训</a>
+      </div>
+      <div class="footer-col">
+        <h4>联系我们</h4>
+        <div class="footer-contact-item"><i class="fas fa-phone"></i> 13876699053</div>
+        <div class="footer-contact-item" style="margin-top:8px"><i class="fas fa-building"></i> 东濂置业有限公司</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 东濂置业有限公司 &middot; 房屋与生活 &middot; 安居乐业，必选东濂</div>
+      <div class="footer-contact">
+        <span>海口市龙华区</span>
+        <span>|</span>
+        <span>电话: 13876699053</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</div><!-- end page-home -->
+
+<!-- ==================== PAGE: FANGCHAN ==================== -->
+<div class="page" id="page-fangchan">
+<div style="padding-top:80px"></div>
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">海口市房地产</div>
+    <h2 class="section-title">海口市<span class="gold">房产</span></h2>
+    <p class="section-desc">安居乐业，必选东濂 &middot; 龙华区 &middot; 秀英区 &middot; 美兰区 &middot; 琼山区</p>
+  </div>
+
+  <!-- District Tabs -->
+  <div class="district-tabs" id="fangchanDistricts">
+    <button class="dist-btn active" onclick="switchDistrict('fangchan','all')">全部区域</button>
+    <button class="dist-btn" onclick="switchDistrict('fangchan','龙华区')">龙华区</button>
+    <button class="dist-btn" onclick="switchDistrict('fangchan','秀英区')">秀英区</button>
+    <button class="dist-btn" onclick="switchDistrict('fangchan','美兰区')">美兰区</button>
+    <button class="dist-btn" onclick="switchDistrict('fangchan','琼山区')">琼山区</button>
+  </div>
+
+  <!-- Sub tabs -->
+  <div class="sub-tabs" id="fangchanTabs">
+    <button class="sub-tab active" onclick="switchSubTab('fangchan','loupan')">楼盘信息</button>
+    <button class="sub-tab" onclick="switchSubTab('fangchan','ershou')">二手房交易</button>
+    <button class="sub-tab" onclick="switchSubTab('fangchan','policy')">楼市政策</button>
+    <button class="sub-tab" onclick="switchSubTab('fangchan','wtb')">委托买</button>
+    <button class="sub-tab" onclick="switchSubTab('fangchan','wts')">委托卖</button>
+    <button class="sub-tab" onclick="switchSubTab('fangchan','gossip')">小道消息</button>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" placeholder="搜索楼盘、小区、区域..." oninput="searchData(this.value)">
+    <button class="btn btn-gold" onclick="showModal('addPropertyModal')"><i class="fas fa-plus"></i> 发布信息</button>
+  </div>
+
+  <div class="cards-grid" id="fangchanCardGrid"></div>
+  <div class="policy-list" id="fangchanPolicyList" style="display:none"></div>
+  <div class="news-list" id="fangchanNewsList" style="display:none"></div>
+</section>
+</div>
+
+<!-- ==================== PAGE: TUDI ==================== -->
+<div class="page" id="page-tudi">
+<div style="padding-top:80px"></div>
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">海口市土地</div>
+    <h2 class="section-title">海口市<span class="gold">土地</span></h2>
+    <p class="section-desc">龙华区 &middot; 秀英区 &middot; 美兰区 &middot; 琼山区</p>
+  </div>
+  <div class="district-tabs">
+    <button class="dist-btn active" onclick="switchDistrict('tudi','all')">全部区域</button>
+    <button class="dist-btn" onclick="switchDistrict('tudi','龙华区')">龙华区</button>
+    <button class="dist-btn" onclick="switchDistrict('tudi','秀英区')">秀英区</button>
+    <button class="dist-btn" onclick="switchDistrict('tudi','美兰区')">美兰区</button>
+    <button class="dist-btn" onclick="switchDistrict('tudi','琼山区')">琼山区</button>
+  </div>
+  <div class="sub-tabs" id="tudiTabs">
+    <button class="sub-tab active" onclick="switchSubTab('tudi','tdinfo')">土地信息</button>
+    <button class="sub-tab" onclick="switchSubTab('tudi','tdpolicy')">土地政策</button>
+    <button class="sub-tab" onclick="switchSubTab('tudi','tdwtb')">委托买</button>
+    <button class="sub-tab" onclick="switchSubTab('tudi','tdwts')">委托卖</button>
+    <button class="sub-tab" onclick="switchSubTab('tudi','tdgossip')">小道消息</button>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="搜索土地、区域...">
+    <button class="btn btn-gold" onclick="showModal('addTudiModal')"><i class="fas fa-plus"></i> 发布土地</button>
+  </div>
+  <div class="cards-grid" id="tudiCardGrid"></div>
+</section>
+</div>
+
+<!-- ==================== PAGE: DIANDONGCHE ==================== -->
+<div class="page" id="page-diandongche">
+<div style="padding-top:80px"></div>
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">汽车 &amp; 电动车</div>
+    <h2 class="section-title">新能源电车 &amp; <span class="gold">电动车</span></h2>
+    <p class="section-desc">海口市龙华区 &middot; 秀英区 &middot; 美兰区 &middot; 琼山区</p>
+  </div>
+  <div class="district-tabs">
+    <button class="dist-btn active" onclick="switchDistrict('car','all')">全部区域</button>
+    <button class="dist-btn" onclick="switchDistrict('car','龙华区')">龙华区</button>
+    <button class="dist-btn" onclick="switchDistrict('car','秀英区')">秀英区</button>
+    <button class="dist-btn" onclick="switchDistrict('car','美兰区')">美兰区</button>
+    <button class="dist-btn" onclick="switchDistrict('car','琼山区')">琼山区</button>
+  </div>
+  <div class="sub-tabs" id="carTabs">
+    <button class="sub-tab active" onclick="switchSubTab('car','carinfo')">汽车咨询</button>
+    <button class="sub-tab" onclick="switchSubTab('car','cargz')">改装文化</button>
+    <button class="sub-tab" onclick="switchSubTab('car','carwtb')">委托买</button>
+    <button class="sub-tab" onclick="switchSubTab('car','carwts')">委托卖</button>
+    <button class="sub-tab" onclick="switchSubTab('car','cargossip')">小道消息</button>
+    <button class="sub-tab" onclick="switchSubTab('car','ebike')">电动车信息</button>
+    <button class="sub-tab" onclick="switchSubTab('car','ebikegz')">电动车改装</button>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="搜索车型、品牌...">
+    <button class="btn btn-gold" onclick="showModal('addCarModal')"><i class="fas fa-plus"></i> 发布车辆</button>
+  </div>
+  <div class="cards-grid" id="carCardGrid"></div>
+</section>
+</div>
+
+<!-- ==================== PAGE: XUECHE ==================== -->
+<div class="page" id="page-xueche">
+<div style="padding-top:80px"></div>
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">网约车服务</div>
+    <h2 class="section-title">网约车<span class="gold">服务平台</span></h2>
+    <p class="section-desc">滴滴 &middot; 高德 &middot; 美团打车 &middot; 曹操出行</p>
+  </div>
+  <div class="district-tabs">
+    <button class="dist-btn active" onclick="switchDistrict('xueche','all')">全部区域</button>
+    <button class="dist-btn" onclick="switchDistrict('xueche','龙华区')">龙华区</button>
+    <button class="dist-btn" onclick="switchDistrict('xueche','秀英区')">秀英区</button>
+    <button class="dist-btn" onclick="switchDistrict('xueche','美兰区')">美兰区</button>
+    <button class="dist-btn" onclick="switchDistrict('xueche','琼山区')">琼山区</button>
+  </div>
+  <div class="sub-tabs" id="xuecheTabs">
+    <button class="sub-tab active" onclick="switchSubTab('xueche','platform')">平台政策</button>
+    <button class="sub-tab" onclick="switchSubTab('xueche','service')">网约车服务</button>
+    <button class="sub-tab" onclick="switchSubTab('xueche','xwts')">委托买和租</button>
+    <button class="sub-tab" onclick="switchSubTab('xueche','xwts')">委托卖和出租</button>
+    <button class="sub-tab" onclick="switchSubTab('xueche','xgossip')">小道消息</button>
+  </div>
+  <div class="search-bar">
+    <input type="text" placeholder="搜索服务、政策...">
+    <button class="btn btn-gold" onclick="showModal('addXuecheModal')"><i class="fas fa-plus"></i> 发布需求</button>
+  </div>
+  <div class="features-grid" id="xuecheFeatureGrid"></div>
+  <div class="news-list" id="xuecheNewsList"></div>
+</section>
+</div>
+
+<!-- ==================== PAGE: NEWS ==================== -->
+<div class="page" id="page-news">
+<div style="padding-top:80px"></div>
+<section class="section">
+  <div class="section-header">
+    <div class="section-label">资讯中心</div>
+    <h2 class="section-title">最新<span class="gold">资讯</span></h2>
+    <p class="section-desc">海口市房产、汽车、网约车行业资讯</p>
+  </div>
+  <div class="tabs" id="newsTabs">
+    <button class="tab active" onclick="switchNewsTab('all')">全部资讯</button>
+    <button class="tab" onclick="switchNewsTab('fangchan')">房产资讯</button>
+    <button class="tab" onclick="switchNewsTab('car')">汽车资讯</button>
+    <button class="tab" onclick="switchNewsTab('xueche')">网约车资讯</button>
+    <button class="tab" onclick="switchNewsTab('policy')">政策解读</button>
+  </div>
+  <div class="news-list" id="allNewsList"></div>
+</section>
+</div>
+
+<!-- ==================== PAGE: ADMIN LOGIN ==================== -->
+<div class="page" id="page-admin-login">
+<div style="padding-top:120px;min-height:100vh;display:flex;align-items:center;justify-content:center">
+  <div style="max-width:400px;width:100%;padding:0 24px">
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="font-size:48px;margin-bottom:16px">&#128274;</div>
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:8px">管理员登录</h2>
+      <p style="color:var(--text2);font-size:14px">房屋与生活 - 后台管理系统</p>
+    </div>
+    <div class="form-group">
+      <label class="form-label">管理员账号</label>
+      <input type="text" class="form-input" id="adminUser" placeholder="请输入管理员账号" value="admin">
+    </div>
+    <div class="form-group">
+      <label class="form-label">密码</label>
+      <input type="password" class="form-input" id="adminPwd" placeholder="请输入密码" value="admin123">
+    </div>
+    <button class="btn btn-gold" style="width:100%;padding:14px" onclick="adminLogin()">
+      <i class="fas fa-sign-in-alt"></i> 登录后台
+    </button>
+    <div style="text-align:center;margin-top:16px">
+      <a href="#" onclick="goPage('home');return false" style="color:var(--text3);font-size:13px;text-decoration:none">返回首页</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ==================== PAGE: ADMIN DASHBOARD ==================== -->
+<div class="page" id="page-admin">
+<div class="admin-layout">
+  <div class="admin-sidebar" id="adminSidebar">
+    <div style="padding:0 24px 16px;border-bottom:1px solid var(--border);margin-bottom:16px">
+      <div style="font-size:16px;font-weight:700;color:var(--gold)">&#128274; 后台管理</div>
+      <div style="font-size:12px;color:var(--text3);margin-top:4px">房屋与生活</div>
+    </div>
+    <div class="admin-menu-item active" onclick="switchAdminMenu('dashboard')"><i class="fas fa-chart-line"></i> 数据概览</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('users')"><i class="fas fa-users"></i> 用户管理</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('fangchan-mgr')"><i class="fas fa-building"></i> 房产管理</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('tudi-mgr')"><i class="fas fa-map-marked-alt"></i> 土地管理</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('car-mgr')"><i class="fas fa-car"></i> 汽车管理</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('xueche-mgr')"><i class="fas fa-taxi"></i> 网约车管理</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('news-mgr')"><i class="fas fa-newspaper"></i> 资讯管理</div>
+    <div class="admin-menu-item" onclick="switchAdminMenu('settings')"><i class="fas fa-cog"></i> 系统设置</div>
+    <div style="padding:16px 24px;border-top:1px solid var(--border);margin-top:16px">
+      <button class="btn btn-dark" style="width:100%" onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> 退出登录</button>
+    </div>
+  </div>
+  <div class="admin-main" id="adminMain">
+    <!-- Dashboard -->
+    <div id="admin-dashboard">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:24px">数据概览</h2>
+      <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:32px">
+        <div class="stat-item" style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:24px">
+          <div class="stat-num" id="adminUsers">0</div>
+          <div class="stat-label">注册用户</div>
+        </div>
+        <div class="stat-item" style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:24px">
+          <div class="stat-num" style="color:var(--green)">0</div>
+          <div class="stat-label">在线用户</div>
+        </div>
+        <div class="stat-item" style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:24px">
+          <div class="stat-num" style="color:var(--orange)">0</div>
+          <div class="stat-label">房源数量</div>
+        </div>
+        <div class="stat-item" style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:24px">
+          <div class="stat-num" style="color:var(--blue)">0</div>
+          <div class="stat-label">车辆信息</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+        <div style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:24px">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">近期注册用户</h3>
+          <div class="table-wrap">
+            <table><thead><tr><th>用户名</th><th>手机</th><th>时间</th></tr></thead>
+            <tbody id="adminRecentUsers"></tbody>
+            </table>
+          </div>
+        </div>
+        <div style="background:var(--dark2);border:1px solid var(--border);border-radius:12px;padding:24px">
+          <h3 style="font-size:16px;font-weight:700;margin-bottom:16px">系统公告</h3>
+          <div class="list-item" style="margin-bottom:8px;background:var(--dark3)">
+            <div class="list-item-icon" style="background:rgba(9,132,227,.1)">&#128276;</div>
+            <div class="list-item-content">
+              <div class="list-item-title">系统正式上线</div>
+              <div class="list-item-meta">2026-04-01</div>
+            </div>
+          </div>
+          <div class="list-item" style="margin-bottom:8px;background:var(--dark3)">
+            <div class="list-item-icon" style="background:rgba(212,168,83,.1)">&#128176;</div>
+            <div class="list-item-content">
+              <div class="list-item-title">安居乐业，必选东濂</div>
+              <div class="list-item-meta">广告词已更新</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Users -->
+    <div id="admin-users" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+        <h2 style="font-size:24px;font-weight:700">用户管理</h2>
+        <button class="btn btn-gold" onclick="showModal('addUserModal')"><i class="fas fa-user-plus"></i> 添加用户</button>
+      </div>
+      <div class="search-bar" style="max-width:400px">
+        <input type="text" placeholder="搜索用户名、手机...">
+        <button class="btn btn-outline"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>用户名</th><th>手机</th><th>注册时间</th><th>状态</th><th>操作</th></tr></thead>
+          <tbody id="adminUsersTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Fangchan MGR -->
+    <div id="admin-fangchan-mgr" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+        <h2 style="font-size:24px;font-weight:700">房产管理</h2>
+        <button class="btn btn-gold" onclick="showModal('addPropertyModal')"><i class="fas fa-plus"></i> 添加楼盘</button>
+      </div>
+      <div class="tabs" style="margin-bottom:20px">
+        <button class="tab active">全部</button>
+        <button class="tab">楼盘信息</button>
+        <button class="tab">二手房</button>
+        <button class="tab">委托买</button>
+        <button class="tab">委托卖</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>ID</th><th>名称</th><th>区域</th><th>类型</th><th>价格</th><th>发布时间</th><th>操作</th></tr></thead>
+          <tbody id="adminFangchanTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <div id="admin-settings" style="display:none">
+      <h2 style="font-size:24px;font-weight:700;margin-bottom:24px">系统设置</h2>
+      <div style="max-width:600px">
+        <div class="form-group">
+          <label class="form-label">网站名称</label>
+          <input type="text" class="form-input" value="房屋与生活">
+        </div>
+        <div class="form-group">
+          <label class="form-label">广告词</label>
+          <input type="text" class="form-input" value="安居乐业，必选东濂">
+        </div>
+        <div class="form-group">
+          <label class="form-label">联系电话</label>
+          <input type="text" class="form-input" value="13876699053">
+        </div>
+        <div class="form-group">
+          <label class="form-label">公司名称</label>
+          <input type="text" class="form-input" value="东濂置业有限公司">
+        </div>
+        <button class="btn btn-gold" onclick="saveSettings()"><i class="fas fa-save"></i> 保存设置</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ==================== MODALS ==================== -->
+
+<!-- Login Modal -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">登录会员</div>
+      <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">用户名 / 手机号</label>
+        <input type="text" class="form-input" id="loginUsername" placeholder="请输入用户名或手机号">
+      </div>
+      <div class="form-group">
+        <label class="form-label">密码</label>
+        <input type="password" class="form-input" id="loginPwd" placeholder="请输入密码">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-dark" onclick="closeModal('loginModal')">取消</button>
+      <button class="btn btn-gold" onclick="doLogin()"><i class="fas fa-sign-in-alt"></i> 登录</button>
+    </div>
+  </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">注册会员</div>
+      <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">用户名</label>
+        <input type="text" class="form-input" id="regUsername" placeholder="2-20个字符">
+      </div>
+      <div class="form-group">
+        <label class="form-label">手机号</label>
+        <input type="tel" class="form-input" id="regPhone" placeholder="11位手机号">
+      </div>
+      <div class="form-group">
+        <label class="form-label">设置密码</label>
+        <input type="password" class="form-input" id="regPwd" placeholder="至少6个字符">
+      </div>
+      <div class="form-group">
+        <label class="form-label">确认密码</label>
+        <input type="password" class="form-input" id="regPwd2" placeholder="再次输入密码">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-dark" onclick="closeModal('registerModal')">取消</button>
+      <button class="btn btn-gold" onclick="doRegister()"><i class="fas fa-user-plus"></i> 注册</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Property Modal -->
+<div class="modal-overlay" id="addPropertyModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">发布楼盘信息</div>
+      <button class="modal-close" onclick="closeModal('addPropertyModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">楼盘名称 *</label>
+        <input type="text" class="form-input" id="propName" placeholder="请输入楼盘名称">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">区域 *</label>
+          <select class="form-input form-select" id="propDistrict">
+            <option value="">选择区域</option>
+            <option>龙华区</option><option>秀英区</option><option>美兰区</option><option>琼山区</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">单价(元/平) *</label>
+          <input type="number" class="form-input" id="propPrice" placeholder="如: 18000">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">物业费(元/平)</label>
+          <input type="number" class="form-input" id="propWY" placeholder="如: 3.5">
+        </div>
+        <div class="form-group">
+          <label class="form-label">停车费(元/月)</label>
+          <input type="number" class="form-input" id="propTC" placeholder="如: 300">
+        </div>
+        <div class="form-group">
+          <label class="form-label">学区</label>
+          <input type="text" class="form-input" id="propXQ" placeholder="如: 海南中学">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">详细信息</label>
+        <textarea class="form-input form-textarea" id="propDesc" placeholder="楼盘详细介绍..."></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-dark" onclick="closeModal('addPropertyModal')">取消</button>
+      <button class="btn btn-gold" onclick="submitProperty()"><i class="fas fa-paper-plane"></i> 提交发布</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add Car Modal -->
+<div class="modal-overlay" id="addCarModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">发布车辆信息</div>
+      <button class="modal-close" onclick="closeModal('addCarModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">车型名称 *</label>
+        <input type="text" class="form-input" id="carName" placeholder="如: 比亚迪汉 EV">
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">品牌 *</label>
+          <select class="form-input form-select" id="carBrand">
+            <option value="">选择品牌</option>
+            <option>比亚迪</option><option>特斯拉</option><option>蔚来</option><option>小鹏</option><option>理想</option><option>广汽</option><option>上汽</option><option>其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">价格(万元) *</label>
+          <input type="number" class="form-input" id="carPrice" placeholder="如: 22">
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="form-group">
+          <label class="form-label">区域</label>
+          <select class="form-input form-select" id="carDistrict">
+            <option value="">选择区域</option>
+            <option>龙华区</option><option>秀英区</option><option>美兰区</option><option>琼山区</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">类型</label>
+          <select class="form-input form-select" id="carType">
+            <option>新能源电车</option><option>电动车</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">详细信息</label>
+        <textarea class="form-input form-textarea" id="carDesc" placeholder="车型详细介绍、配置..."></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-dark" onclick="closeModal('addCarModal')">取消</button>
+      <button class="btn btn-gold" onclick="submitCar()"><i class="fas fa-paper-plane"></i> 提交发布</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add User Modal (Admin) -->
+<div class="modal-overlay" id="addUserModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">添加用户</div>
+      <button class="modal-close" onclick="closeModal('addUserModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label class="form-label">用户名</label>
+        <input type="text" class="form-input" id="addUserName" placeholder="2-20个字符">
+      </div>
+      <div class="form-group">
+        <label class="form-label">手机号</label>
+        <input type="tel" class="form-input" id="addUserPhone" placeholder="11位手机号">
+      </div>
+      <div class="form-group">
+        <label class="form-label">初始密码</label>
+        <input type="password" class="form-input" id="addUserPwd" value="123456">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-dark" onclick="closeModal('addUserModal')">取消</button>
+      <button class="btn btn-gold" onclick="addUser()"><i class="fas fa-user-plus"></i> 添加</button>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+
+<!-- Toast -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
