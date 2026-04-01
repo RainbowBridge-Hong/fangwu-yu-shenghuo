@@ -89,7 +89,6 @@ function adminLogin(){
     toast('Login successful!','ok');
     loadAdminData();
   }else{toast('Username or password incorrect','er')}
-}
 
 function adminLogout(){localStorage.removeItem('fangwu_admin');gp('home');toast('已退出登录','ok')}
 
