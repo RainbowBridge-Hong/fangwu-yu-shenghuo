@@ -5,7 +5,7 @@ var currentUser=null;
 function getCloud(){try{return JSON.parse(localStorage.getItem(CLOUD_KEY)||'{}')}catch(e){return {}}}
 function setCloud(d){localStorage.setItem(CLOUD_KEY,JSON.stringify(d))}
 
-window.addEventListener('load',function(){gp('home');
+window.addEventListener('load',function(){var hash=window.location.hash.replace('#pg-','');if(hash && hash!=='page'){gp(hash);}else{gp('home');}gp('home');
   setTimeout(function(){
     var ld=document.getElementById('ld');
     if(ld){ld.classList.add('out');setTimeout(function(){ld.style.display='none'},600)}
